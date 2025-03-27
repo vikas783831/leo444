@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Match Analysis | Leo444 Cricket Fantasy</title>
+    <title>Match Analysis - Leo444 Cricket Fantasy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,9 +17,6 @@
             --light-bg: #F0F5FA;
             --white: #FFFFFF;
             --border: #D1D5DB;
-            --success: #4CAF50;
-            --warning: #FFC107;
-            --danger: #F44336;
         }
 
         * {
@@ -58,6 +55,11 @@
             padding: 15px 0;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
         .logo h1 {
             color: var(--primary);
             font-size: 1.8rem;
@@ -80,247 +82,144 @@
             color: var(--text);
             font-weight: 500;
             transition: color 0.3s;
-            position: relative;
         }
 
-        nav ul li a:hover,
-        nav ul li a.active {
+        nav ul li a:hover {
             color: var(--primary);
         }
 
-        nav ul li a.active:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--primary);
-        }
-
-        /* Page Hero */
-        .page-hero {
-            padding: 150px 0 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
             text-align: center;
         }
 
-        .page-hero h1 {
+        .hero h2 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .page-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Main Content */
-        .page-content {
-            padding: 60px 0;
-        }
-
-        .page-content h2 {
-            font-size: 1.8rem;
             color: var(--secondary);
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .page-content h2 i {
-            margin-right: 15px;
-            color: var(--primary);
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
         }
 
-        /* Match Cards */
-        .matches-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        /* Analysis Section */
+        .analysis {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
             margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
         }
 
         .match-card {
             background-color: var(--white);
             border-radius: 10px;
+            padding: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .match-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary);
         }
 
         .match-header {
-            padding: 20px;
-            border-bottom: 1px solid var(--border);
-            background-color: var(--light-bg);
-        }
-
-        .teams {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-
-        .team {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 120px;
-        }
-
-        .team img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            margin-bottom: 10px;
-        }
-
-        .vs {
-            margin: 0 20px;
-            font-weight: 600;
-            color: var(--secondary);
-        }
-
-        .match-info {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text);
-        }
-
-        .match-info p {
-            margin-bottom: 5px;
-        }
-
-        .match-analysis {
-            padding: 20px;
-        }
-
-        .match-analysis h3 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-
-        .analysis-points {
             margin-bottom: 20px;
-        }
-
-        .point {
-            margin-bottom: 15px;
-        }
-
-        .point h4 {
-            font-size: 1rem;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            color: var(--secondary);
-        }
-
-        .point h4 i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
-
-        .key-players {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 10px;
-        }
-
-        .player {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .player img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 5px;
-            border: 2px solid var(--primary);
-        }
-
-        .player span {
-            font-size: 0.8rem;
-            text-align: center;
-        }
-
-        .full-analysis {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: var(--primary);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
-        }
-
-        .full-analysis:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .full-analysis i {
-            margin-left: 5px;
-        }
-
-        /* Past Matches */
-        .past-matches-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .past-match {
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            padding: 20px;
-        }
-
-        .match-result {
-            margin-bottom: 15px;
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border);
         }
 
-        .match-result .teams {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .match-result .result {
+        .match-teams {
+            font-size: 1.3rem;
             font-weight: 600;
-            color: var(--success);
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .fantasy-lessons h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
             color: var(--secondary);
         }
 
-        .fantasy-lessons ul {
-            list-style-position: inside;
-            padding-left: 5px;
+        .match-venue {
+            color: var(--text);
+            opacity: 0.8;
+            font-size: 0.9rem;
         }
 
-        .fantasy-lessons li {
-            margin-bottom: 8px;
+        .match-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .analysis-point {
+            margin-bottom: 20px;
+        }
+
+        .analysis-point h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .player-highlight {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: var(--light-bg);
+            border-radius: 5px;
+        }
+
+        .player-highlight img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .player-info {
+            flex: 1;
+        }
+
+        .player-name {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .player-stats {
             font-size: 0.9rem;
+            opacity: 0.8;
         }
 
         /* Footer */
@@ -399,11 +298,7 @@
             opacity: 0.8;
             display: flex;
             align-items: center;
-        }
-
-        .footer-contact i {
-            margin-right: 10px;
-            color: var(--primary);
+            gap: 10px;
         }
 
         .copyright {
@@ -433,283 +328,172 @@
                 margin: 5px 0;
             }
 
-            .page-hero {
-                padding: 120px 0 40px;
+            .hero {
+                padding: 120px 0 60px;
             }
 
-            .page-hero h1 {
+            .hero h2 {
                 font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .match-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <h1>LEO444</h1>
+                <h1>Leo444</h1>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#notice">Important Notice</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                     <li><a href="fantasy-tips.html">Fantasy Tips</a></li>
                     <li><a href="player-stats.html">Player Stats</a></li>
-                    <li><a href="match-analysis.html" class="active">Match Analysis</a></li>
-                    <li><a href="strategy-guides.html">Strategy Guides</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="hero">
         <div class="container">
-            <h1>Match Analysis Center</h1>
-            <p>In-depth previews and post-match breakdowns for fantasy cricket success</p>
+            <h2>In-Depth Match Analysis</h2>
+            <p>Detailed breakdowns of upcoming matches to inform your fantasy selections</p>
+            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Match analysis" class="hero-image">
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="page-content">
+    <section class="analysis">
         <div class="container">
-            <section class="upcoming-matches">
-                <h2><i class="fas fa-calendar-alt"></i> Upcoming Matches Analysis</h2>
-                <div class="matches-grid">
-                    <article class="match-card">
-                        <div class="match-header">
-                            <div class="teams">
-                                <div class="team">
-                                    <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/340000/340085.4.jpg" alt="India flag">
-                                    <span>INDIA</span>
-                                </div>
-                                <div class="vs">vs</div>
-                                <div class="team">
-                                    <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/340000/340087.4.jpg" alt="England flag">
-                                    <span>ENGLAND</span>
-                                </div>
-                            </div>
-                            <div class="match-info">
-                                <p>3rd ODI | Dharamsala | Mar 25, 2024</p>
-                                <p>Series: India leads 2-0</p>
-                            </div>
-                        </div>
-                        <div class="match-analysis">
-                            <h3>Key Fantasy Insights</h3>
-                            <div class="analysis-points">
-                                <div class="point">
-                                    <h4><i class="fas fa-cloud-sun"></i> Weather & Pitch</h4>
-                                    <p>Clear skies expected. The pitch has traditionally offered good bounce early on before settling into a batting paradise. Dew factor likely in second innings.</p>
-                                </div>
-                                <div class="point">
-                                    <h4><i class="fas fa-users"></i> Team News</h4>
-                                    <p>India may rest Bumrah with series won. England considering playing both Wood and Archer for extra pace.</p>
-                                </div>
-                                <div class="point">
-                                    <h4><i class="fas fa-star"></i> Key Players</h4>
-                                    <div class="key-players">
-                                        <div class="player">
-                                            <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/319000/319095.jpg" alt="Virat Kohli">
-                                            <span>Kohli</span>
-                                        </div>
-                                        <div class="player">
-                                            <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/316700/316799.jpg" alt="Jasprit Bumrah">
-                                            <span>Bumrah</span>
-                                        </div>
-                                        <div class="player">
-                                            <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/313000/313095.jpg" alt="Joe Root">
-                                            <span>Root</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="full-analysis">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="match-card">
-                        <div class="match-header">
-                            <div class="teams">
-                                <div class="team">
-                                    <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/340000/340086.4.jpg" alt="Australia flag">
-                                    <span>AUSTRALIA</span>
-                                </div>
-                                <div class="vs">vs</div>
-                                <div class="team">
-                                    <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/340000/340088.4.jpg" alt="New Zealand flag">
-                                    <span>NEW ZEALAND</span>
-                                </div>
-                            </div>
-                            <div class="match-info">
-                                <p>2nd T20I | Wellington | Mar 27, 2024</p>
-                                <p>Series: 1-1</p>
-                            </div>
-                        </div>
-                        <div class="match-analysis">
-                            <h3>Key Fantasy Insights</h3>
-                            <div class="analysis-points">
-                                <div class="point">
-                                    <h4><i class="fas fa-cloud-sun"></i> Weather & Pitch</h4>
-                                    <p>Partly cloudy with chance of rain interruptions. Small ground with short boundaries favors big hitters. Pitch expected to be slow with some turn.</p>
-                                </div>
-                                <div class="point">
-                                    <h4><i class="fas fa-users"></i> Team News</h4>
-                                    <p>Australia likely unchanged. New Zealand may bring in Sodhi for Santner to add more spin options.</p>
-                                </div>
-                                <div class="point">
-                                    <h4><i class="fas fa-star"></i> Key Players</h4>
-                                    <div class="key-players">
-                                        <div class="player">
-                                            <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/313000/313094.jpg" alt="Glenn Maxwell">
-                                            <span>Maxwell</span>
-                                        </div>
-                                        <div class="player">
-                                            <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/319000/319095.jpg" alt="Mitchell Starc">
-                                            <span>Starc</span>
-                                        </div>
-                                        <div class="player">
-                                            <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_80,q_50/lsci/db/PICTURES/CMS/313000/313093.jpg" alt="Kane Williamson">
-                                            <span>Williamson</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="full-analysis">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
+            <div class="section-title">
+                <h2>Match Analysis</h2>
+            </div>
+            
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="match-teams">Mumbai Indians vs Chennai Super Kings</div>
+                    <div class="match-venue">Wankhede Stadium, Mumbai | May 6, 2024</div>
                 </div>
-            </section>
-
-            <section class="past-matches">
-                <h2><i class="fas fa-history"></i> Past Matches Breakdown</h2>
-                <div class="past-matches-grid">
-                    <article class="past-match">
-                        <div class="match-result">
-                            <div class="teams">
-                                <span>IND</span>
-                                <span>289/4 (48.3)</span>
+                
+                <div class="match-details">
+                    <div>
+                        <div class="analysis-point">
+                            <h4>Pitch Report</h4>
+                            <p>The Wankhede pitch is traditionally batting-friendly with good bounce and carry. Spinners might come into play as the match progresses with some turn expected in the second innings. The average first innings score here is 185.</p>
+                        </div>
+                        
+                        <div class="analysis-point">
+                            <h4>Key Battles</h4>
+                            <div class="player-highlight">
+                                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Rohit Sharma">
+                                <div class="player-info">
+                                    <div class="player-name">Rohit Sharma</div>
+                                    <div class="player-stats">vs CSK: Avg 42.5 | SR 138.7 | 3 fifties in last 5 matches</div>
+                                </div>
                             </div>
-                            <div class="teams">
-                                <span>ENG</span>
-                                <span>286/9 (50)</span>
-                            </div>
-                            <div class="result">
-                                India won by 6 wickets
+                            
+                            <div class="player-highlight">
+                                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Jadeja">
+                                <div class="player-info">
+                                    <div class="player-name">Ravindra Jadeja</div>
+                                    <div class="player-stats">vs MI: 12 wickets in last 5 matches | Econ 7.2</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="fantasy-lessons">
-                            <h3>Fantasy Takeaways</h3>
+                    </div>
+                    
+                    <div>
+                        <div class="analysis-point">
+                            <h4>Fantasy Recommendations</h4>
                             <ul>
-                                <li>Top-order batsmen dominated with the pitch playing true throughout</li>
-                                <li>Spinners were ineffective after the 20th over</li>
-                                <li>Pandya's all-round performance (2/45 & 64*) was match-winning</li>
-                                <li>Butler's early dismissal hurt England's momentum</li>
-                                <li>Death bowlers from both teams proved expensive</li>
+                                <li>Load up on top-order batsmen from both teams (Rohit, Conway, Gaikwad)</li>
+                                <li>Include at least one death bowler (Bumrah or Pathirana)</li>
+                                <li>Ravindra Jadeja is a must-have all-rounder</li>
+                                <li>Consider Ishan Kishan as wicketkeeper (better recent form than Dhoni)</li>
                             </ul>
                         </div>
-                    </article>
-
-                    <article class="past-match">
-                        <div class="match-result">
-                            <div class="teams">
-                                <span>AUS</span>
-                                <span>178/5 (20)</span>
+                        
+                        <div class="analysis-point">
+                            <h4>Weather Conditions</h4>
+                            <p>Expected to be hot and humid (32°C) with no chance of rain. Dew might play a factor in the second innings, making chasing preferable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="match-card">
+                <div class="match-header">
+                    <div class="match-teams">Royal Challengers Bangalore vs Gujarat Titans</div>
+                    <div class="match-venue">M. Chinnaswamy Stadium, Bengaluru | May 7, 2024</div>
+                </div>
+                
+                <div class="match-details">
+                    <div>
+                        <div class="analysis-point">
+                            <h4>Pitch Report</h4>
+                            <p>Chinnaswamy is known for its small boundaries and high-scoring games. Fast bowlers who can vary their pace might be effective. The average first innings score here is 195 this season.</p>
+                        </div>
+                        
+                        <div class="analysis-point">
+                            <h4>Key Battles</h4>
+                            <div class="player-highlight">
+                                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Virat Kohli">
+                                <div class="player-info">
+                                    <div class="player-name">Virat Kohli</div>
+                                    <div class="player-stats">At Chinnaswamy: Avg 48.7 | SR 142.3 | 2 centuries this season</div>
+                                </div>
                             </div>
-                            <div class="teams">
-                                <span>NZ</span>
-                                <span>172/8 (20)</span>
-                            </div>
-                            <div class="result">
-                                Australia won by 6 runs
+                            
+                            <div class="player-highlight">
+                                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Rashid Khan">
+                                <div class="player-info">
+                                    <div class="player-name">Rashid Khan</div>
+                                    <div class="player-stats">vs RCB: 9 wickets in 4 matches | Econ 6.8</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="fantasy-lessons">
-                            <h3>Fantasy Takeaways</h3>
+                    </div>
+                    
+                    <div>
+                        <div class="analysis-point">
+                            <h4>Fantasy Recommendations</h4>
                             <ul>
-                                <li>Powerplay bowlers from both teams took key wickets</li>
-                                <li>Middle-order batsmen struggled against quality pace</li>
-                                <li>Maxwell's quickfire 45 proved decisive in the end</li>
-                                <li>Fielding lapses cost New Zealand at crucial moments</li>
-                                <li>Captaincy choices (bowling changes) impacted results</li>
+                                <li>Must-have: Virat Kohli (captain option) and Faf du Plessis</li>
+                                <li>Rashid Khan is a must-have bowler despite the small ground</li>
+                                <li>Consider Shubman Gill as vice-captain</li>
+                                <li>Mohammed Siraj could be valuable with the new ball</li>
                             </ul>
                         </div>
-                    </article>
-
-                    <article class="past-match">
-                        <div class="match-result">
-                            <div class="teams">
-                                <span>SA</span>
-                                <span>320/6 (50)</span>
-                            </div>
-                            <div class="teams">
-                                <span>PAK</span>
-                                <span>315/9 (50)</span>
-                            </div>
-                            <div class="result">
-                                South Africa won by 5 runs
-                            </div>
+                        
+                        <div class="analysis-point">
+                            <h4>Team News</h4>
+                            <p>RCB might bring back Harshal Patel for his death bowling. GT could play Joshua Little instead of Alzarri Joseph for better variation.</p>
                         </div>
-                        <div class="fantasy-lessons">
-                            <h3>Fantasy Takeaways</h3>
-                            <ul>
-                                <li>Centurions from both teams were top fantasy scorers</li>
-                                <li>Spinners were effective in middle overs</li>
-                                <li>Rabada's death bowling (3/48) was crucial</li>
-                                <li>Pakistan's lower order nearly pulled off a miracle</li>
-                                <li>Fielding standards were exceptional from both sides</li>
-                            </ul>
-                        </div>
-                    </article>
+                    </div>
                 </div>
-            </section>
-
-            <section class="trend-analysis">
-                <h2><i class="fas fa-chart-line"></i> Current Series Trends</h2>
-                <div class="trends-grid">
-                    <article class="trend-card">
-                        <h3>India vs England ODI Series</h3>
-                        <div class="trend-points">
-                            <div class="point">
-                                <h4>Batting Trends</h4>
-                                <p>Indian top order averaging 65+ in first 15 overs</p>
-                                <p>England middle order struggling against spin (avg 28.3)</p>
-                            </div>
-                            <div class="point">
-                                <h4>Bowling Trends</h4>
-                                <p>Indian spinners economy rate: 4.8 (vs England's 5.6)</p>
-                                <p>England pacers taking 70% of wickets in series</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="trend-card">
-                        <h3>Australia vs New Zealand T20 Series</h3>
-                        <div class="trend-points">
-                            <div class="point">
-                                <h4>Batting Trends</h4>
-                                <p>Powerplay scoring rate: 8.9 (highest in all T20Is this year)</p>
-                                <p>Middle overs (7-15) seeing most dot balls (42%)</p>
-                            </div>
-                            <div class="point">
-                                <h4>Bowling Trends</h4>
-                                <p>Pacers taking 2.5x more wickets than spinners</p>
-                                <p>Yorkers at death proving most effective delivery</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <h2>LEO444</h2>
+                        <h2>Leo444</h2>
                     </div>
                     <p>A platform for cricket enthusiasts to engage in skill-based fantasy sports for entertainment purposes.</p>
                     <div class="social-links">
@@ -722,24 +506,24 @@
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="fantasy-tips.html">Fantasy Tips</a></li>
-                        <li><a href="player-stats.html">Player Stats</a></li>
-                        <li><a href="match-analysis.html">Match Analysis</a></li>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#notice">Important Notice</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h3>Resources</h3>
+                    <h3>Categories</h3>
                     <ul>
+                        <li><a href="fantasy-tips.html">Fantasy Tips</a></li>
+                        <li><a href="player-stats.html">Player Stats</a></li>
+                        <li><a href="match-analysis.html">Match Analysis</a></li>
                         <li><a href="strategy-guides.html">Strategy Guides</a></li>
-                        <li><a href="#">Player Rankings</a></li>
-                        <li><a href="#">Tournament Schedule</a></li>
-                        <li><a href="#">Fantasy Rules</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h3>Contact Info</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 23 Sector 7A, Block B, Noida, Uttar Pradesh 201301</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 23 Sector 7, A Block, Noida, Uttar Pradesh</p>
                     <p><i class="fas fa-envelope"></i> info@leo444.club</p>
                     <p><i class="fas fa-phone"></i> +91 9643520162</p>
                 </div>
