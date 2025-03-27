@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Statistics | Leo444 Cricket Fantasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>LEO444</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="fantasy-tips.html">Fantasy Tips</a></li>
+                    <li><a href="player-stats.html" class="active">Player Stats</a></li>
+                    <li><a href="match-analysis.html">Match Analysis</a></li>
+                    <li><a href="strategy-guides.html">Strategy Guides</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Player Statistics Center</h1>
+            <p>Comprehensive data to inform your fantasy team selections</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="page-content">
+        <div class="container">
+            <section class="stats-filters">
+                <h2><i class="fas fa-filter"></i> Filter Players</h2>
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label for="player-role">Player Role:</label>
+                        <select id="player-role">
+                            <option value="all">All Roles</option>
+                            <option value="batsman">Batsman</option>
+                            <option value="bowler">Bowler</option>
+                            <option value="allrounder">All-Rounder</option>
+                            <option value="wicketkeeper">Wicketkeeper</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="team">Team:</label>
+                        <select id="team">
+                            <option value="all">All Teams</option>
+                            <option value="india">India</option>
+                            <option value="england">England</option>
+                            <option value="australia">Australia</option>
+                            <option value="newzealand">New Zealand</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="format">Format:</label>
+                        <select id="format">
+                            <option value="odi">ODI</option>
+                            <option value="t20">T20</option>
+                            <option value="test">Test</option>
+                        </select>
+                    </div>
+                    <button class="apply-filters">Apply Filters</button>
+                </div>
+            </section>
+
+            <section class="player-stats">
+                <h2><i class="fas fa-table"></i> Player Statistics</h2>
+                <div class="stats-table-container">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Team</th>
+                                <th>Role</th>
+                                <th>Matches</th>
+                                <th>Runs</th>
+                                <th>Avg</th>
+                                <th>SR</th>
+                                <th>Wkts</th>
+                                <th>Econ</th>
+                                <th>FP Avg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="player-cell">
+                                    <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/319000/319095.jpg" alt="Player image">
+                                    <span>Virat Kohli</span>
+                                </td>
+                                <td>IND</td>
+                                <td>Batsman</td>
+                                <td>275</td>
+                                <td>12898</td>
+                                <td>57.32</td>
+                                <td>93.62</td>
+                                <td>4</td>
+                                <td>5.12</td>
+                                <td class="highlight">68.4</td>
+                            </tr>
+                            <tr>
+                                <td class="player-cell">
+                                    <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/316700/316799.jpg" alt="Player image">
+                                    <span>Jasprit Bumrah</span>
+                                </td>
+                                <td>IND</td>
+                                <td>Bowler</td>
+                                <td>89</td>
+                                <td>156</td>
+                                <td>8.21</td>
+                                <td>72.45</td>
+                                <td>149</td>
+                                <td>4.63</td>
+                                <td class="highlight">62.1</td>
+                            </tr>
+                            <!-- More player rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="player-comparison">
+                <h2><i class="fas fa-balance-scale"></i> Player Comparison Tool</h2>
+                <div class="comparison-tool">
+                    <div class="player-select">
+                        <select id="player1">
+                            <option value="">Select Player 1</option>
+                            <option value="kohli">Virat Kohli</option>
+                            <option value="sharma">Rohit Sharma</option>
+                        </select>
+                        <select id="player2">
+                            <option value="">Select Player 2</option>
+                            <option value="root">Joe Root</option>
+                            <option value="buttler">Jos Buttler</option>
+                        </select>
+                        <button class="compare-btn">Compare Players</button>
+                    </div>
+                    <div class="comparison-results">
+                        <div class="player-stats-compare">
+                            <div class="player-compare-card">
+                                <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/319000/319095.jpg" alt="Player image">
+                                <h4>Virat Kohli</h4>
+                                <div class="stat-bars">
+                                    <div class="stat-bar">
+                                        <label>Batting Avg</label>
+                                        <div class="bar-container">
+                                            <div class="bar" style="width: 90%">57.3</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <label>Strike Rate</label>
+                                        <div class="bar-container">
+                                            <div class="bar" style="width: 85%">93.6</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <label>FP Avg</label>
+                                        <div class="bar-container">
+                                            <div class="bar highlight" style="width: 95%">68.4</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vs-circle">VS</div>
+                            <div class="player-compare-card">
+                                <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/316700/316799.jpg" alt="Player image">
+                                <h4>Joe Root</h4>
+                                <div class="stat-bars">
+                                    <div class="stat-bar">
+                                        <label>Batting Avg</label>
+                                        <div class="bar-container">
+                                            <div class="bar" style="width: 85%">50.1</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <label>Strike Rate</label>
+                                        <div class="bar-container">
+                                            <div class="bar" style="width: 75%">86.9</div>
+                                        </div>
+                                    </div>
+                                    <div class="stat-bar">
+                                        <label>FP Avg</label>
+                                        <div class="bar highlight" style="width: 80%">58.7</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comparison-insights">
+                            <h4>Key Insights:</h4>
+                            <ul>
+                                <li>Kohli has a significantly higher fantasy point average in the last 12 months (68.4 vs 58.7)</li>
+                                <li>Root performs better in English conditions, while Kohli dominates in Asian conditions</li>
+                                <li>Kohli is more consistent with 70+ scores in 45% of matches compared to Root's 38%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
