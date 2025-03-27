@@ -8,23 +8,453 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root {
+            --primary: #046bd2;
+            --primary-dark: #045cb4;
+            --secondary: #1e293b;
+            --text: #334155;
+            --light-bg: #F0F5FA;
+            --white: #FFFFFF;
+            --border: #D1D5DB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* Notice Section */
+        .notice {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .notice-box {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--primary);
+            padding: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .notice-box h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .notice-box p {
+            margin-bottom: 15px;
+        }
+
+        .notice-box strong {
+            color: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3, .contact-form h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-form form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h2 {
+            color: var(--white);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.2rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <h1>LEO444</h1>
+                <h1>Leo444</h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#notice">Important Notice</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <li><a href="fantasy-tips.html">Fantasy Tips</a></li>
                     <li><a href="player-stats.html">Player Stats</a></li>
-                    <li><a href="match-analysis.html">Match Analysis</a></li>
-                    <li><a href="strategy-guides.html">Strategy Guides</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -33,9 +463,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Elevate Your Cricket Fantasy Experience</h2>
-            <p>Join India's fastest growing skill-based cricket fantasy platform with 500,000+ active users</p>
-            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cricket stadium" class="hero-image">
+            <h2>Play, Win, Repeat: Join the Game Now!</h2>
+            <p>Experience the thrill of cricket fantasy with Leo444 - where skill meets strategy for pure entertainment</p>
+            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Cricket stadium" class="hero-image">
         </div>
     </section>
 
@@ -43,30 +473,29 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Why Cricket Enthusiasts Choose Leo444</h2>
-                <p>Our platform offers unique advantages that make fantasy cricket more engaging and rewarding</p>
+                <h2>Why Choose Leo444 Cricket Fantasy?</h2>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-trophy"></i>
                     </div>
-                    <h3>Skill-Based Platform</h3>
-                    <p>Our proprietary algorithm evaluates user skill levels to match you with competitors of similar ability, ensuring fair and competitive matchups.</p>
+                    <h3>Skill-Based Competition</h3>
+                    <p>Test your cricket knowledge and strategic thinking against other fans in our skill-based platform.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-trophy"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3>Daily Tournaments</h3>
-                    <p>Participate in our daily skill challenges with special recognition for top performers and detailed performance analytics.</p>
+                    <h3>Community of Fans</h3>
+                    <p>Join thousands of cricket enthusiasts who share your passion for the game.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Advanced Analytics</h3>
-                    <p>Access comprehensive player statistics, pitch reports, and weather analysis to make informed team selections.</p>
+                    <h3>Performance Tracking</h3>
+                    <p>Monitor your progress and improve your fantasy cricket skills over time.</p>
                 </div>
             </div>
         </div>
@@ -76,54 +505,23 @@
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-title">
-                <h2>How Our Platform Works</h2>
-                <p>Three simple steps to start your fantasy cricket journey</p>
+                <h2>How Leo444 Cricket Fantasy Works</h2>
             </div>
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Create Your Profile</h3>
-                    <p>Complete our skill assessment quiz to establish your initial rating and get matched with appropriate competitions.</p>
+                    <h3>Create Your Team</h3>
+                    <p>Select players from upcoming matches within your budget to build your fantasy team.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Build Your Team</h3>
-                    <p>Use our advanced tools to analyze players and construct your fantasy squad within the salary cap constraints.</p>
+                    <h3>Join Contests</h3>
+                    <p>Enter various contests where your team competes against others based on real match performances.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Compete & Improve</h3>
-                    <p>Join contests, track real-time performance, and receive personalized tips to enhance your strategic approach.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Users Say</h2>
-                <p>Hear from our community of cricket enthusiasts</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Leo444's skill-based matching system has made fantasy cricket much more enjoyable. I'm always competing against players at my level."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Rahul Sharma</h4>
-                        <p>Delhi, 2+ years on platform</p>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"The detailed analytics helped me improve my team selection strategy dramatically. My win rate increased by 40% in six months."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Priya Patel</h4>
-                        <p>Mumbai, Top 100 Player</p>
-                    </div>
+                    <h3>Track & Improve</h3>
+                    <p>Follow live scoring and analyze your performance to enhance your strategy for next matches.</p>
                 </div>
             </div>
         </div>
@@ -133,10 +531,10 @@
     <section class="notice" id="notice">
         <div class="container">
             <div class="notice-box">
-                <h3><i class="fas fa-exclamation-triangle"></i> Important Notice:</h3>
-                <p>Leo444 Cricket Fantasy is a skill-based entertainment platform. No real money is involved in any contests or competitions on our platform.</p>
-                <p>Participation is restricted in certain jurisdictions. Users from <strong>Nagaland, Sikkim, Odisha, Andhra Pradesh, Telangana, and Assam</strong> are currently unable to participate due to local regulations.</p>
-                <p>All participants must be <strong>18 years or older</strong>. Our platform is designed to celebrate cricket knowledge and strategic thinking, providing a fun, competitive environment for cricket enthusiasts.</p>
+                <h3>⚠️ Important Notice:</h3>
+                <p>This platform is strictly for entertainment purposes only, and no real money is involved in playing fantasy sports games. Participation in fantasy sports is restricted in certain states due to local regulations.</p>
+                <p>Players residing in <strong>Nagaland, Sikkim, Odisha, Andhra Pradesh, Telangana, and Assam</strong> are prohibited from participating as fantasy sports are banned in these states.</p>
+                <p>Additionally, only individuals who are <strong>18 years or older</strong> are permitted to play. We encourage responsible play and remind users that fantasy sports are games of skill and strategy, intended solely for fun and engagement.</p>
             </div>
         </div>
     </section>
@@ -145,45 +543,32 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Our support team is available to answer your questions</p>
+                <h2>We're Here to Help - Contact Us!</h2>
             </div>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Contact Details</h3>
-                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> info@leo444.club</p>
-                    <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91 9643520162</p>
-                    <p><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon-Sat, 9AM-6PM IST</p>
-                    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 23 Sector 7A, Block B, Noida, Uttar Pradesh 201301</p>
-                    
-                    <div class="social-links">
-                        <h3>Follow Us</h3>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <h3>Customer Support</h3>
+                    <p><i class="fas fa-envelope"></i> info@leo444.club</p>
+                    <p><i class="fas fa-phone"></i> +91 9643520162</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 23 Sector 7, A Block, Noida, Uttar Pradesh</p>
+                    <p><i class="fas fa-clock"></i> Monday-Saturday: 9AM-6PM</p>
                 </div>
                 <div class="contact-form">
                     <h3>Send Us a Message</h3>
-                    <form id="contactForm">
+                    <form>
                         <div class="form-group">
-                            <label for="name">Full Name</label>
+                            <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
+                            <label for="email">Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="submit-btn">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -196,65 +581,57 @@
             <div class="footer-container">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <h2>LEO444</h2>
+                        <h2>Leo444</h2>
                     </div>
-                    <p>India's premier skill-based cricket fantasy platform, connecting cricket enthusiasts through competitive yet friendly fantasy sports experiences.</p>
-                    <div class="app-download">
-                        <h3>Download Our App</h3>
-                        <div class="app-buttons">
-                            <a href="#" class="app-btn">
-                                <i class="fab fa-google-play"></i>
-                                <span>Get it on <br><strong>Google Play</strong></span>
-                            </a>
-                            <a href="#" class="app-btn">
-                                <i class="fab fa-apple"></i>
-                                <span>Download on the <br><strong>App Store</strong></span>
-                            </a>
-                        </div>
+                    <p>A platform for cricket enthusiasts to engage in skill-based fantasy sports for entertainment purposes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#notice">Important Notice</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Categories</h3>
+                    <ul>
                         <li><a href="fantasy-tips.html">Fantasy Tips</a></li>
                         <li><a href="player-stats.html">Player Stats</a></li>
                         <li><a href="match-analysis.html">Match Analysis</a></li>
                         <li><a href="strategy-guides.html">Strategy Guides</a></li>
-                        <li><a href="#notice">Compliance Notice</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Community Forum</a></li>
-                        <li><a href="#">Scoring System</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 23 Sector 7A, Block B<br>Noida, Uttar Pradesh 201301</p>
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 23 Sector 7, A Block, Noida, Uttar Pradesh</p>
                     <p><i class="fas fa-envelope"></i> info@leo444.club</p>
                     <p><i class="fas fa-phone"></i> +91 9643520162</p>
-                    <div class="newsletter">
-                        <h3>Newsletter</h3>
-                        <form>
-                            <input type="email" placeholder="Your email address" required>
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Leo444 Cricket Fantasy. All rights reserved. | Skill-based entertainment platform | Not affiliated with any cricket board</p>
+                <p>&copy; 2024 Leo444 Cricket Fantasy. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
