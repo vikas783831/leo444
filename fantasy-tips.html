@@ -3,141 +3,420 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy Cricket Tips | Leo444 Cricket Fantasy</title>
+    <title>Fantasy Tips - Leo444 Cricket Fantasy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root {
+            --primary: #046bd2;
+            --primary-dark: #045cb4;
+            --secondary: #1e293b;
+            --text: #334155;
+            --light-bg: #F0F5FA;
+            --white: #FFFFFF;
+            --border: #D1D5DB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .notice-box {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--primary);
+            padding: 30px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 40px;
+        }
+
+        .notice-box h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .notice-box p {
+            margin-bottom: 15px;
+        }
+
+        .notice-box strong {
+            color: var(--secondary);
+        }
+
+        .notice-box ol, .notice-box ul {
+            margin: 15px 0 15px 20px;
+        }
+
+        .notice-box li {
+            margin-bottom: 10px;
+        }
+
+        .notice-box a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .notice-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h2 {
+            color: var(--white);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.2rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <h1>LEO444</h1>
+                <h1>Leo444</h1>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="fantasy-tips.html" class="active">Fantasy Tips</a></li>
-                    <li><a href="player-stats.html">Player Stats</a></li>
-                    <li><a href="match-analysis.html">Match Analysis</a></li>
-                    <li><a href="strategy-guides.html">Strategy Guides</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="index.html#notice">Important Notice</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="fantasy-tips.html">Fantasy Tips</a></li>
+                    <li><a href="player-stats.html">Player Stats</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="hero">
         <div class="container">
-            <h1>Fantasy Cricket Tips</h1>
-            <p>Expert advice to help you build winning fantasy teams</p>
+            <h2>Fantasy Cricket Tips & Strategies</h2>
+            <p>Expert advice to help you build winning fantasy cricket teams</p>
+            <img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Cricket tips" class="hero-image">
         </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="page-content">
+    <section class="features">
         <div class="container">
-            <section class="tips-section">
-                <h2><i class="fas fa-lightbulb"></i> Daily Fantasy Tips</h2>
-                <div class="tips-grid">
-                    <article class="tip-card">
-                        <div class="tip-header">
-                            <span class="tip-date">Today's Match: IND vs ENG</span>
-                            <span class="tip-author">By Expert Analyst</span>
-                        </div>
-                        <h3>Pitch Report & Conditions</h3>
-                        <p>The Dharamsala pitch is expected to favor fast bowlers early on with good bounce and carry. As the match progresses, it typically becomes better for batting. The weather is clear with no rain expected, so prepare for a full 100-over contest.</p>
-                        <div class="tip-strategy">
-                            <h4>Recommended Strategy:</h4>
-                            <ul>
-                                <li>Load up on top-order batsmen who can capitalize after the new ball</li>
-                                <li>Include at least three fast bowlers in your XI</li>
-                                <li>Consider the wicketkeeper from the team batting second</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="tip-card featured">
-                        <div class="tip-header">
-                            <span class="tip-date">Featured Tip</span>
-                            <span class="tip-author">By Head Analyst</span>
-                        </div>
-                        <h3>Differential Picks for Today</h3>
-                        <p>While everyone will be selecting the obvious star players, these under-the-radar picks could give you the edge in competitive contests:</p>
-                        <div class="player-picks">
-                            <div class="player">
-                                <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/319000/319095.jpg" alt="Player image">
-                                <h5>Rajat Patidar (IND)</h5>
-                                <p>Middle-order batsman in excellent domestic form, likely to be low-owned</p>
-                            </div>
-                            <div class="player">
-                                <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/316700/316799.jpg" alt="Player image">
-                                <h5>Rehan Ahmed (ENG)</h5>
-                                <p>Young spinner who could exploit any turn later in the match</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section class="educational-section">
-                <h2><i class="fas fa-graduation-cap"></i> Fantasy Cricket Education</h2>
-                <div class="education-grid">
-                    <div class="education-card">
-                        <h3>Understanding Player Roles</h3>
-                        <p>Learn how different batting positions and bowling roles affect fantasy point potential:</p>
-                        <ul>
-                            <li>Why openers typically score more points than middle-order batsmen</li>
-                            <li>How death bowlers can accumulate points even in high-scoring matches</li>
-                            <li>The value of all-rounders in different match situations</li>
-                        </ul>
-                        <a href="#" class="read-more">Read Detailed Guide <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="education-card">
-                        <h3>Captain Selection Strategies</h3>
-                        <p>Master the art of choosing the perfect captain for maximum points:</p>
-                        <ul>
-                            <li>Statistical analysis of top captain choices over past 3 seasons</li>
-                            <li>When to go against the crowd with your captain pick</li>
-                            <li>How match conditions should influence your decision</li>
-                        </ul>
-                        <a href="#" class="read-more">Read Detailed Guide <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="expert-corner">
-                <h2><i class="fas fa-user-tie"></i> Expert Corner</h2>
-                <div class="expert-advice">
-                    <div class="expert-profile">
-                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Expert image">
-                        <h4>Rahul Desai</h4>
-                        <p>Former First-Class Cricketer<br>5 years fantasy analysis experience</p>
-                    </div>
-                    <div class="expert-content">
-                        <h3>This Week's Key Insight: Managing Player Workloads</h3>
-                        <p>With the packed international schedule, player fatigue is a significant factor many fantasy players overlook. Here's what to watch for:</p>
-                        <ul>
-                            <li>Bowlers returning from injury often have restricted workloads in their first few matches back</li>
-                            <li>Players coming off long flights may underperform in their first match of a series</li>
-                            <li>Look for young players getting opportunities when teams rotate their squads</li>
-                        </ul>
-                        <p>This knowledge helped my premium subscribers achieve a 22% higher success rate last season.</p>
-                    </div>
-                </div>
-            </section>
+            <div class="section-title">
+                <h2>Fantasy Cricket Tips</h2>
+            </div>
+            <div class="notice-box">
+                <h3>Top 5 Fantasy Cricket Tips</h3>
+                <ol>
+                    <li><strong>Research Player Form:</strong> Always check recent performances before selecting players. Look at last 5 matches statistics.</li>
+                    <li><strong>Pitch Conditions Matter:</strong> Tailor your team based on whether the pitch favors batsmen or bowlers. Green tops help pacers while dry pitches favor spinners.</li>
+                    <li><strong>Captain Selection is Key:</strong> Your captain earns 2x points - choose a consistent performer who is likely to play full match.</li>
+                    <li><strong>Balance Your Team:</strong> Don't overload with batsmen or bowlers - maintain a good mix (typically 5-6 batsmen, 3-4 bowlers, 1-2 all-rounders).</li>
+                    <li><strong>Follow Team News:</strong> Last-minute changes can impact player availability. Check playing XI 30 minutes before deadline.</li>
+                </ol>
+                <p>Check our <a href="strategy-guides.html">Strategy Guides</a> for more in-depth analysis and advanced techniques.</p>
+                
+                <h3 style="margin-top: 30px;">Additional Pro Tips</h3>
+                <ul>
+                    <li>Select wicket-keepers who bat in top order (they get more opportunities to score points)</li>
+                    <li>Include at least one death bowler (they often get wickets at the end)</li>
+                    <li>Consider all-rounders as they contribute with both bat and ball</li>
+                    <li>Check head-to-head records between players and teams</li>
+                    <li>Monitor weather conditions as rain can reduce overs and impact scoring</li>
+                </ul>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
     <footer>
-        <!-- Same footer as index.html -->
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2>Leo444</h2>
+                    </div>
+                    <p>A platform for cricket enthusiasts to engage in skill-based fantasy sports for entertainment purposes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#notice">Important Notice</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="fantasy-tips.html">Fantasy Tips</a></li>
+                        <li><a href="player-stats.html">Player Stats</a></li>
+                        <li><a href="match-analysis.html">Match Analysis</a></li>
+                        <li><a href="strategy-guides.html">Strategy Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 23 Sector 7, A Block, Noida, Uttar Pradesh</p>
+                    <p><i class="fas fa-envelope"></i> info@leo444.club</p>
+                    <p><i class="fas fa-phone"></i> +91 9643520162</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Leo444 Cricket Fantasy. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
