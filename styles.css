@@ -1,132 +1,157 @@
 /* General Styles */
 body {
-    margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-}
-
-/* Container for centering content */
-.container {
-    max-width: 960px;
-    margin: 0 auto;
-    overflow: hidden;
-    text-align: center;
-    padding: 0 20px;
-}
-
-/* Header and Navigation */
-header {
-    background-color: #2C3E50;
-    padding: 10px 0;
-}
-
-.navbar ul {
-    list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
+    line-height: 1.6;
+    color: #333;
 }
 
-.navbar ul li {
-    margin: 0 15px;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+/* Header */
+header {
+    background-color: #046bd2;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
 }
 
-.navbar ul li a:hover {
-    text-decoration: underline;
+header h1 {
+    margin: 0;
+    font-size: 2rem;
 }
 
-/* Mobile Menu Toggle */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 40px 0;
 }
 
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
-}
-
-/* Image Section */
-.image-section {
+.hero img {
+    max-width: 100%;
+    height: auto;
     margin-bottom: 20px;
 }
 
-.image-section img {
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
+.hero h1 {
+    font-size: 2.5rem;
+    margin: 20px 0;
 }
 
-.image-section img:hover {
-    transform: scale(1.05);
+/* Contact Section */
+.contact {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+}
+
+.contact-info, .contact-form {
+    width: 48%;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    padding: 10px;
+    background-color: #046bd2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #045cb4;
+}
+
+/* Notice Section */
+.notice {
+    background-color: #f0f5fa;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.notice h2 {
+    font-size: 1.5rem;
+    margin: 0;
 }
 
 /* Footer */
-.footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
+footer {
+    background-color: #fff;
+    padding: 40px 0;
+    border-top: 1px solid #eaeaea;
 }
 
-.footer a {
-    color: #000;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-form form {
+    display: flex;
+}
+
+.search-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.search-form button {
+    padding: 10px;
+    background-color: #046bd2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #045cb4;
+}
+
+.sitemap ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sitemap ul li {
+    margin-bottom: 10px;
+}
+
+.sitemap ul li a {
+    color: #046bd2;
     text-decoration: none;
-    margin: 0 10px;
 }
 
-.footer a:hover {
+.sitemap ul li a:hover {
     text-decoration: underline;
 }
 
-/* Disclaimer Section */
-.disclaimer {
-    background-color: #f1f1f1;
+.important-notice {
+    width: 100%;
     text-align: center;
-    padding: 10px;
     margin-top: 20px;
-    font-size: 12px;
 }
 
-.disclaimer b {
-    font-weight: bold;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-
-    .navbar {
-        display: none;
-        flex-direction: column;
-        background-color: #2C3E50;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-    }
-
-    .navbar.active {
-        display: flex;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-    }
-
-    .navbar ul li {
-        margin: 10px 0;
-    }
+.important-notice p {
+    font-size: 1rem;
+    margin: 0;
 }
